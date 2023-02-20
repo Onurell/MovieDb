@@ -1,6 +1,7 @@
 package com.moviedb;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import com.example.moviedb.R;
 
 import java.util.List;
 
-public class MoveListRecViewAdaptor extends RecyclerView.Adapter<MoveListRecViewAdaptor.MyViewHolder> implements View.OnClickListener{
+public class MoveListRecViewAdaptor extends RecyclerView.Adapter<MoveListRecViewAdaptor.MyViewHolder> implements RecyclerInterface{
 
 
     private Context mContext;
@@ -48,6 +49,14 @@ public class MoveListRecViewAdaptor extends RecyclerView.Adapter<MoveListRecView
                 .into(holder.poster_path);
 
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClick(mData.get(holder.getAdapterPosition()));
+            }
+        });
+
+
 
 
     }
@@ -58,9 +67,12 @@ public class MoveListRecViewAdaptor extends RecyclerView.Adapter<MoveListRecView
     }
 
     @Override
-    public void onClick(View v) {
+    public void onItemClick(ModelClass movie_id) {
+        Intent intent = new Intent(mContext.getApplicationContext(),DetailActivity.class);
+        mContext.startActivity(intent);
 
     }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -76,6 +88,8 @@ public class MoveListRecViewAdaptor extends RecyclerView.Adapter<MoveListRecView
             id = itemView.findViewById(R.id.id_txt);
 
             poster_path = itemView.findViewById(R.id.imageView);
+
+
 
 
 
