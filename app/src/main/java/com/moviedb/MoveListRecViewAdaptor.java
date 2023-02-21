@@ -67,11 +67,17 @@ public class MoveListRecViewAdaptor extends RecyclerView.Adapter<MoveListRecView
     }
 
     @Override
-    public void onItemClick(ModelClass movie_id) {
+    public void onItemClick(ModelClass movie) {
+
         Intent intent = new Intent(mContext.getApplicationContext(),DetailActivity.class);
+        intent.putExtra("movie",movie);
         mContext.startActivity(intent);
 
     }
+
+
+
+
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -94,5 +100,7 @@ public class MoveListRecViewAdaptor extends RecyclerView.Adapter<MoveListRecView
 
 
         }
+
+
     }
 }

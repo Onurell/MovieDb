@@ -1,6 +1,8 @@
 package com.moviedb;
 
-public class ModelClass {
+import java.io.Serializable;
+
+public class ModelClass implements Serializable {
 
     String id;
     String title;

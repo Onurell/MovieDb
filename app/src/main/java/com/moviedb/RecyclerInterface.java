@@ -1,9 +1,7 @@
 package com.moviedb;
 
 public interface RecyclerInterface {
-    void onItemClick(ModelClass movie_id);
-
-
+    void onItemClick(ModelClass movie);
 
 
 }
